@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, AfterViewChecked, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, AfterViewChecked, ViewEncapsulation, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { CanonicalService } from '../canonical.service';
@@ -12,7 +12,7 @@ import { PlatformService } from '../platform.service';
   styleUrls: ['./post.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class PostComponent implements AfterViewChecked {
+export class PostComponent implements OnInit, AfterViewChecked {
   postId: any;
   post: any;
   comments: any;
@@ -25,7 +25,8 @@ export class PostComponent implements AfterViewChecked {
     private titleService: Title,
     private canonical: CanonicalService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private platformS: PlatformService
   ) {
     this.titleService.setTitle(`Let's Get Checked - Developer Challenge - Blog`);
 
@@ -41,20 +42,22 @@ export class PostComponent implements AfterViewChecked {
       if (event instanceof NavigationEnd) {
         this.postId = Number(this.route.snapshot.paramMap.get('id'));
 
-        this.apiS.getPosts().subscribe((res) => {
-          res.map((post) => {
+        if (this.postId) {
+          this.apiS.getPosts().subscribe((res) => {
+            res.map((post) => {
 
-            if (post.id === this.postId) {
-              this.post = post;
-              this.meta.addTag({
-                name: 'description', content: `Let's Get Checked - Developer Challenge - blog, fashion, technology, social, trend, digital, angular 10, ${this.post.description}`
-              }, true);
+              if (post.id === this.postId) {
+                this.post = post;
+                this.meta.addTag({
+                  name: 'description', content: `Let's Get Checked - Developer Challenge - blog, fashion, technology, social, trend, digital, angular 10, ${this.post.description}`
+                }, true);
 
-              this.getComments();
+                this.getComments();
 
-            }
+              }
+            });
           });
-        });
+        }
 
         this.canonical.createCanonicalURL(this.absoluteBaseUrl + event.url);
 
@@ -63,12 +66,17 @@ export class PostComponent implements AfterViewChecked {
     });
   }
 
+  ngOnInit(): void {
+  }
+
   ngAfterViewChecked(): void {
-    setTimeout(() => {
-      if (this.post && this.hero.nativeElement.style.backgroundImage.indexOf(this.post.imageUrl) < 0) {
-        this.hero.nativeElement.style.backgroundImage = `url(${this.post.imageUrl})`;
-      }
-    });
+    if (this.platformS.isBrowserCheck()) {
+      setTimeout(() => {
+        if (this.post && this.hero && this.hero.nativeElement.style.backgroundImage.indexOf(this.post.imageUrl) < 0) {
+          this.hero.nativeElement.style.backgroundImage = `url(${this.post.imageUrl})`;
+        }
+      });
+    }
   }
 
   getComments(): void {
@@ -78,6 +86,6 @@ export class PostComponent implements AfterViewChecked {
   }
 
   filterTopic($event): void {
-    this.router.navigateByUrl('/home/' + $event)
+    this.router.navigateByUrl('/home/' + $event);
   }
 }

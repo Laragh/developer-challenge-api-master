@@ -18,17 +18,16 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
 
 @NgModule({
   declarations: [
-    AppComponent,
-
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     TransferHttpCacheModule,
     CommonModule,
-    AppRoutingModule,
     HttpClientModule,
     HomeModule,
-    PostModule
+    PostModule,
+    AppRoutingModule
   ],
   providers: [
     HttpClientModule,

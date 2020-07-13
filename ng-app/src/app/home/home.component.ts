@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   goToPost(postId: number, postSlug: string): void {
-    this.router.navigateByUrl('/post/' + postId + '/' + postSlug);
+    this.router.navigateByUrl('/blogpost/' + postId + '/' + postSlug);
   }
 
   filterTopic($event): void {

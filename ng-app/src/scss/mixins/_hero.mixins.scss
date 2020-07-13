@@ -1,0 +1,22 @@
+@mixin hero {
+  &__hero {
+    padding-top: 50px;
+    overflow: visible;
+    text-align: center;
+    color: white;
+    display: flex;
+    padding-top: 10rem;
+    background-blend-mode: saturation;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 1250px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+    height: 100vh;
+    max-height: 330px;
+    overflow: visible;
+    position: relative;
+  }
+}

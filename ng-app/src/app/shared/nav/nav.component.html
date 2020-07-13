@@ -1,0 +1,11 @@
+<section class="nav__section">
+  <div class="nav__logo">
+    <h1>COMPANY BLOG</h1>
+  </div>
+  <nav class="nav__container">
+    <ul class="nav__ul">
+      <li *ngFor="let item of navMenu" class="nav__li" (click)="selectTopic(item.name)">{{item.name}}</li>
+      <li class="nav__li" (click)="selectTopic('all')">All Topics</li>
+    </ul>
+  </nav>
+</section>

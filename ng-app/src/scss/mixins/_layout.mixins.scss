@@ -1,0 +1,10 @@
+@mixin layout {
+  &__section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1800px;
+    align-items: center;
+    justify-content: center;
+  }
+}

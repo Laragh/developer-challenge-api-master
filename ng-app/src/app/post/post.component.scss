@@ -1,0 +1,32 @@
+@import '../../scss/mixins/hero.mixins';
+@import '../../scss//mixins/layout.mixins';
+
+.post {
+  @include hero;
+  @include layout;
+
+  &__section {
+    max-width: 1250px;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  &__left {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+  }
+
+  &__center {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 5px 0 5px 0;
+
+  }
+}

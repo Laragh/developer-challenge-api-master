@@ -1,0 +1,26 @@
+<lgc-nav (selectedTopic)="filterTopic($event)"></lgc-nav>
+
+<section class="post__section">
+  <div class="post__hero" #hero>
+  </div>
+</section>
+<section class="post__section" *ngIf="post">
+  <div class="post__center">
+    <p class="post__title">{{post.title}}</p>
+    <p>{{post.author}}, {{post.publish_date}}</p>
+  </div>
+  <hr>
+  <div class="post__left">
+    <p>{{post.description}}</p>
+    <div [innerHTML]="post.content"></div>
+  </div>
+  <hr>
+  <div class="post__left" *ngIf="comments?.length">
+    Comments:
+    <div *ngFor="let comment of comments">
+      <p>{{comment.user}}, {{comment.date}}</p>
+      <p>{{comment.content}}</p>
+      <hr>
+    </div>
+  </div>
+</section>

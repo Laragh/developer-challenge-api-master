@@ -5,3 +5,8 @@
 body {
   font-family: 'Montserrat', serif;
 }
+
+input:focus,
+textarea {
+  outline: none !important;
+}

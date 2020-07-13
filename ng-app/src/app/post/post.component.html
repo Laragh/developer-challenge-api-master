@@ -16,11 +16,7 @@
   </div>
   <hr>
   <div class="post__left" *ngIf="comments?.length">
-    Comments:
-    <div *ngFor="let comment of comments">
-      <p>{{comment.user}}, {{comment.date}}</p>
-      <p>{{comment.content}}</p>
-      <hr>
-    </div>
+    <lgc-comments [comments]="comments" [postId]="postId"></lgc-comments>
+
   </div>
 </section>

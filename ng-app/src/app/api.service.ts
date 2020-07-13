@@ -21,6 +21,14 @@ export class ApiService {
     return this.http.get(environment.apiUrl + '/posts/' + postId + '/comments');
   }
 
+  addApiComments(postId, comment): any {
+    return this.http.post(environment.apiUrl + '/posts/' + postId + '/comments', comment);
+  }
+
+  editApiComment(commentId, comment): any {
+    return this.http.put(environment.apiUrl + '/comments/' + commentId, comment);
+  }
+
   getPosts(): any {
     return this.getApiPosts().pipe(
       tap((posts: any) => {

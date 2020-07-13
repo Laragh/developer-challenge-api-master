@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   imports: [
@@ -17,10 +18,12 @@ import { RouterModule } from '@angular/router';
   exports: [
     CommonModule,
     FormsModule,
-    NavComponent
+    NavComponent,
+    CommentsComponent
   ],
   declarations: [
-    NavComponent
+    NavComponent,
+    CommentsComponent
   ],
   entryComponents: [],
   providers: [

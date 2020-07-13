@@ -1,0 +1,105 @@
+.comment {
+  &__add {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    margin-top: 10px;
+  }
+
+
+
+  &__input,
+  &__input:focus {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom-width: 1px;
+    outline: none !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    font-size: 16px;
+    margin-right: 20px;
+  }
+
+  &__click {
+    cursor: pointer;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+
+  &__input:focus {
+    border-color: #286090;
+    border-bottom-width: 2px;
+  }
+
+  &__inputRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  &__comments {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0;
+
+  }
+
+  &__action {
+    background-color: #286090;
+    color: white;
+
+    &:hover {
+      background-color: darken(#286090, 5%)
+    }
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10px 0;
+
+  }
+
+  &__details {
+    &--bolder {
+      font-weight: 500;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    font-weight: 300;
+    font-size: 16px;
+
+  }
+
+  &__profile-pic {
+    width: 55px;
+    height: 55px;
+    border-radius: 55px;
+    background-color: #111;
+    margin-right: 15px;
+  }
+}

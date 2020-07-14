@@ -54,8 +54,12 @@ This will install all dependencies (listed in `package.json`) necessary to get t
 In a separate terminal - run the client app:
 
 `cd ng-app`
+
 `npm install`
-`npm run build:ssr && npm run serve:ssr` (http://localhost:4000) production ready or `npm run dev:ssr` (http://localhost:4200) development hot SSR build
+
+`npm run build:ssr && npm run serve:ssr` (http://localhost:4000) production ready or 
+
+`npm run dev:ssr` (http://localhost:4200) development hot SSR build
 
 ## Using the REST API
 

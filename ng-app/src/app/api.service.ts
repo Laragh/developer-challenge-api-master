@@ -32,13 +32,16 @@ export class ApiService {
   getPosts(): any {
     return this.getApiPosts().pipe(
       tap((posts: any) => {
-        let imageCount = 0;
+        let imageCount = -1;
+        let topicCount = -1;
         posts.map((post) => {
-          if (imageCount >= imageUrls.length - 1) { imageCount = 0 };
+          if (imageCount >= imageUrls.length - 1) { imageCount = -1; }
+          if (topicCount >= navTopics.length - 1) { topicCount = -1; }
           imageCount++;
-          post.topic = navTopics[Math.floor(Math.random() * navTopics.length)];
+          topicCount++;
+          post.topic = navTopics[topicCount];
           post.imageUrl = '../..' + imageUrls[imageCount].url;
-        })
+        });
       }
       )
     );

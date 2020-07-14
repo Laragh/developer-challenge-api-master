@@ -15,7 +15,7 @@
     <div [innerHTML]="post.content"></div>
   </div>
   <hr>
-  <div class="post__left" *ngIf="comments?.length">
+  <div class="post__left">
     <lgc-comments [comments]="comments" [postId]="postId"></lgc-comments>
 
   </div>

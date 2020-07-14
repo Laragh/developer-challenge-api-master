@@ -19,32 +19,33 @@
     </div>
   </div>
 
+  <div *ngIf="comments?.length">
+    <div *ngFor="let comment of comments" class="comment__comments">
+      <div class="comment__add">
+        <div class="comment__profile-pic"></div>
+        <div class="comment__author">
 
-  <div *ngFor="let comment of comments" class="comment__comments">
-    <div class="comment__add">
-      <div class="comment__profile-pic"></div>
-      <div class="comment__author">
+          <div class="comment__details"><span class="comment__details--bolder">{{comment.user}}</span> {{comment.date}}
+          </div>
+          <div class="comment__inputRow">
 
-        <div class="comment__details"><span class="comment__details--bolder">{{comment.user}}</span> {{comment.date}}
+            <div *ngIf="!comment.edit" class="comment__input">{{comment.content}}</div>
+            <input *ngIf="comment.edit" class="comment__input" type="textarea" [(ngModel)]="comment.newContent"
+              placeholder="{{comment.content}}">
+
+            <span *ngIf="!comment.edit || !comment.newContent" class="material-icons comment__click"
+              (click)="editCommentTxt(comment)">
+              edit
+            </span>
+            <span *ngIf="comment.edit && comment.newContent" class="material-icons comment__click"
+              [ngClass]="{'comment__action':comment.newContent}" (click)="editComment(comment)">
+              add
+            </span>
+          </div>
+
         </div>
-        <div class="comment__inputRow">
-
-          <div *ngIf="!comment.edit" class="comment__input">{{comment.content}}</div>
-          <input *ngIf="comment.edit" class="comment__input" type="textarea" [(ngModel)]="comment.newContent"
-            placeholder="{{comment.content}}">
-
-          <span *ngIf="!comment.edit || !comment.newContent" class="material-icons comment__click"
-            (click)="editCommentTxt(comment)">
-            edit
-          </span>
-          <span *ngIf="comment.edit && comment.newContent" class="material-icons comment__click"
-            [ngClass]="{'comment__action':comment.newContent}" (click)="editComment(comment)">
-            add
-          </span>
-        </div>
-
       </div>
     </div>
-
   </div>
+
 </section>

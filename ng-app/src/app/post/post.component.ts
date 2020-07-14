@@ -15,7 +15,7 @@ import { PlatformService } from '../platform.service';
 export class PostComponent implements OnInit, AfterViewChecked {
   postId: any;
   post: any;
-  comments: any;
+  comments = [];
   absoluteBaseUrl = environment.absoluteBaseUrl;
   @ViewChild('hero') hero: ElementRef;
 

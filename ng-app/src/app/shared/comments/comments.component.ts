@@ -55,12 +55,11 @@ export class CommentsComponent implements OnInit {
 
   editCommentTxt(comment): void {
     comment.edit = !comment.edit;
-    console.log(comment.id)
     this.comments.map((com) => {
       if (com.id !== comment.id) {
         com.edit = false;
       }
-    })
-    this.cd.detectChanges()
+    });
+    this.cd.detectChanges();
   }
 }
